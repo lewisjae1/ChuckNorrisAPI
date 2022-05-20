@@ -41,26 +41,29 @@ namespace ChuckNorrisWinForm
             else
             {
                 MessageBox.Show("Choose the Category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            }
         }
 
         private async Task generateNerdyJoke()
         {
             Joke j = await ChuckNorrisClient.GetNerdyJoke();
-            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}");
+            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}",
+                             "Joke", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async Task generateExplicitJoke()
         {
             Joke j = await ChuckNorrisClient.GetExplicitJoke();
-            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}");
+            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}",
+                             "Joke", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private async Task generateRandomJoke()
         {
 
             Joke j = await ChuckNorrisClient.GetRandomJoke();
-            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}");
+            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}",
+                             "Joke", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }
