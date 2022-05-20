@@ -32,12 +32,24 @@ namespace ChuckNorrisWinForm
             }
             else if(cbx_category.SelectedItem == "explicit")
             {
-                
+                generateExplicitJoke();
             }
-            else if (cbx_category.SelectedItem == "explicit")
+            else if (cbx_category.SelectedItem == "nerdy")
             {
-
+                generateNerdyJoke();
             }
+        }
+
+        private async Task generateNerdyJoke()
+        {
+            Joke j = await ChuckNorrisClient.GetNerdyJoke();
+            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}");
+        }
+
+        private async Task generateExplicitJoke()
+        {
+            Joke j = await ChuckNorrisClient.GetExplicitJoke();
+            MessageBox.Show($"{j.Id}:{j.JokeText}\n\n{string.Join(", ", j.Categories)}");
         }
 
         private async Task generateRandomJoke()
