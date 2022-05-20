@@ -26,15 +26,15 @@ namespace ChuckNorrisWinForm
 
         private void btn_joke_Click(object sender, EventArgs e)
         {
-            if(cbx_category.SelectedItem == "all")
+            if(cbx_category.SelectedIndex == 0)
             {
                 generateRandomJoke();
             }
-            else if(cbx_category.SelectedItem == "explicit")
+            else if(cbx_category.SelectedIndex == 1)
             {
                 generateExplicitJoke();
             }
-            else if (cbx_category.SelectedItem == "nerdy")
+            else if (cbx_category.SelectedIndex == 2)
             {
                 generateNerdyJoke();
             }
