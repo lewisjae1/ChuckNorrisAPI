@@ -38,6 +38,10 @@ namespace ChuckNorrisWinForm
             {
                 generateNerdyJoke();
             }
+            else
+            {
+                MessageBox.Show("Choose the Category", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         }
 
         private async Task generateNerdyJoke()
