@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbx_category = new System.Windows.Forms.ComboBox();
             this.btn_joke = new System.Windows.Forms.Button();
             this.lbl_category = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -42,13 +42,13 @@
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 0;
             // 
-            // comboBox1
+            // cbx_category
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(158, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 1;
+            this.cbx_category.FormattingEnabled = true;
+            this.cbx_category.Location = new System.Drawing.Point(158, 124);
+            this.cbx_category.Name = "cbx_category";
+            this.cbx_category.Size = new System.Drawing.Size(151, 28);
+            this.cbx_category.TabIndex = 1;
             // 
             // btn_joke
             // 
@@ -75,7 +75,7 @@
             this.ClientSize = new System.Drawing.Size(321, 423);
             this.Controls.Add(this.lbl_category);
             this.Controls.Add(this.btn_joke);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbx_category);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Chuck Norris Joke Generator";
@@ -88,7 +88,7 @@
         #endregion
 
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox cbx_category;
         private Button btn_joke;
         private Label lbl_category;
     }

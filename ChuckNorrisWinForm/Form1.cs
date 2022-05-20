@@ -1,3 +1,5 @@
+using ChuckNorrisAPI;
+
 namespace ChuckNorrisWinForm
 {
     public partial class Form1 : Form
@@ -12,9 +14,13 @@ namespace ChuckNorrisWinForm
             InitializeComboBox();
         }
 
-        private void InitializeComboBox()
+        private async Task InitializeComboBox()
         {
-            throw new NotImplementedException();
+            IEnumerable<string> categories = await ChuckNorrisClient.GetCategories();
+            foreach (var cat in categories)
+            {
+                cbx_category.Items.Add(cat);
+            }
         }
     }
 }
