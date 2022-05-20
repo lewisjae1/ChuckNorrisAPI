@@ -58,6 +58,7 @@
             this.btn_joke.TabIndex = 2;
             this.btn_joke.Text = "Generate Joke";
             this.btn_joke.UseVisualStyleBackColor = true;
+            this.btn_joke.Click += new System.EventHandler(this.btn_joke_Click);
             // 
             // lbl_category
             // 
