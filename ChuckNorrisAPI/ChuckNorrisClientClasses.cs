@@ -39,6 +39,46 @@ namespace ChuckNorrisAPI
             }
         }
 
+        public async static Task<Joke> GetExplicitJoke()
+        {
+            HttpResponseMessage response = await client.GetAsync("jokes/random?limitTo=[explicit]");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = JsonConvert.DeserializeObject<SingleJokeResponse>(await response.Content.ReadAsStringAsync());
+                var joke = data.JokeData;
+                joke.JokeText = WebUtility.HtmlDecode(joke.JokeText);
+
+                return data.JokeData;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async static Task<Joke> GetNerdyJoke()
+        {
+            HttpResponseMessage response = await client.GetAsync("jokes/random?limitTo=[nerdy]");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = JsonConvert.DeserializeObject<SingleJokeResponse>(await response.Content.ReadAsStringAsync());
+                while (!data.JokeData.Categories.Contains("nerdy"))
+                {
+                    data = JsonConvert.DeserializeObject<SingleJokeResponse>(await response.Content.ReadAsStringAsync());
+                }
+                var joke = data.JokeData;
+                joke.JokeText = WebUtility.HtmlDecode(joke.JokeText);
+
+                return data.JokeData;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public async static Task<IEnumerable<Joke>> GetRandomJokes(int numJokes)
         {
             if (numJokes < 1)
